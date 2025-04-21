@@ -14,6 +14,14 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      - name: Set up Go modules
+        uses: actions/setup-go@v4
+        with:
+          go-version: '1.23'
+      
+      name: Update dependencies
+        run: go mod tidy
+        
       - name: Run Unit Tests
         run: go test ./...  # Упрощенная команда
 
