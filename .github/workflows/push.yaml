@@ -1,15 +1,21 @@
 name: golang-pipeline
-on: push
+
+on:
+  push:
+    branches: [ "feature/new" ]
+  pull_request:
+    branches: [ "main" ] 
+
 jobs:
   test:
     runs-on: ubuntu-latest
     container: golang:1.23
+    
     steps:
       - uses: actions/checkout@v4
 
       - name: Run Unit Tests
-        run: GOOS=linux GOARCH=amd64 go test
+        run: go test ./...  # Упрощенная команда
 
       - name: Vet
-        run: |
-          go vet ./...
+        run: go vet .//
