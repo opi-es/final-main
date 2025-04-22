@@ -5,7 +5,7 @@ on:
     branches: [ "feature/new" ]
     tags: [ "v*.*.*" ]
   pull_request:
-    branches: [ "main" ]
+    branches: [ "feature/new" ]
      
 
 jobs:
