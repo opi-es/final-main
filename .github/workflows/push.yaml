@@ -27,7 +27,7 @@ jobs:
         run: go test ./...  
 
       - name: Vet
-        run: go vet .//
+        run: go vet ./
 
   publish:
     name: Push Docker image to Docker Hub
