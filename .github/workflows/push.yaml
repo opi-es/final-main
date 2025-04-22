@@ -3,8 +3,10 @@ name: golang-pipeline
 on:
   push:
     branches: [ "feature/new" ]
+    tags: [ "v*.*.*" ]
   pull_request:
-    branches: [ "main" ] 
+    branches: [ "main" ]
+     
 
 jobs:
   test:
@@ -49,7 +51,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5.5.1
         with:
-          images: <Docker ID>/hello-golang
+          images: opies/hello-golang
 
       - name: Build and push Docker Image
         uses: docker/build-push-action@v5
